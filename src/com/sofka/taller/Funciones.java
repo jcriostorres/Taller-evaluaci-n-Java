@@ -1,5 +1,11 @@
 package com.sofka.taller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+
 
 public class Funciones {
 
@@ -109,7 +115,92 @@ public class Funciones {
         return esLaboralONo;
     }
 
+
+    //función 9
+    public static String reemplazarYConcatenar(String miMensaje) {
+
+        String texto = "La sonrisa sera la mejor arma contra la tristeza";
+        texto = texto.replace("a", "e");
+        return texto + " " + miMensaje;
+
+    }
+
+    //funcion 10
+    public static String eliminarEspacioEnTexto(String frase) {
+        String texto_sin_espacios = "";
+        char caracterActual;
+
+        if (frase.split(" ").length > 1)
+            return frase.replace(" ", " ");
+        else
+            return "No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)";
+    }
+
+
+    //función 11
+    public static void logitudYVocalesDeUnaFrase(String frase) {
+        if (frase.split(" ").length > 1) {
+            int count = 0;
+            int longitud = frase.length();
+            for (int i = 0; i < longitud; i++) {
+                char ch = frase.charAt(i);
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    count++;
+                }
+            }
+            System.out.println("la frase ingresada tiene una logitud de " + longitud + " y " + count + " Vocales");
+        } else {
+            System.out.println("No es posible realizar la funcionalidad con una sola palabra o letra, necesita una frase:)");
+        }
+    }
+
+    //función 12
+    public static String direnciaSiSonDiferentesDosPalabras(String palabra1, String palabra2) {
+        String auxRes = "";
+        for (int i = 0; i < palabra1.length(); i++) {
+            if (i < palabra2.length()) {
+                if (palabra1.charAt(i) != palabra2.charAt(i)) {
+                    auxRes += "Posicion " + i + " la letra  de la palabra 1 " + palabra1.charAt(i) + " es diferente a la letra " + palabra2.charAt(i) + " de la palabra 2\n";
+                }
+            } else {
+                auxRes += "Posicion " + i + " de la palabra 1 es " + palabra1.charAt(i) + " y no tiene con quien compararse en la palabra 2\n";
+            }
+        }
+        return auxRes;
+    }
+
+    //función 13
+    public static String verFechaHoraActual() {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY hh:mm:ss");
+        String dateString = sdf.format(cal.getTime());
+        return dateString;
+    }
+
+    //función 14
+    public static void numerosDeDosEnDosHastaMil(int num) {
+        if (num > 0 && num <= 1000) {
+            for (int numero = num; numero < 1001; numero += 2) {
+                System.out.println("numero: " + numero);
+            }
+        } else {
+            System.out.println("Por favor ingrese un numero de 1 a 1000.");
+        }
+    }
+
+    //funcion para mostrar en que peso esta cada persona
+    public static String comprobarPeso(int n) {
+        String auxRes = "La persona esta en sobrepeso";
+        if (n == -1) {
+            auxRes = "La persona esta por debajo de su peso ideal";
+        } else if (n == 0) {
+            auxRes = "La persona esta en su peso ideal";
+        }
+        return auxRes;
+    }
 }
+
+
 
 
 
