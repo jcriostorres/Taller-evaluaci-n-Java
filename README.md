@@ -1,2 +1,2 @@
-# Taller-evaluaci-n-Java
-## Java version  11.0.10
+# Taller-evaluacion-Java
+## Java versión 11.0.10
